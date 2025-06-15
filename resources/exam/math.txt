@@ -1,0 +1,11 @@
+M|Tap nghiem cua phuong trinh log2(x^2 - 1) = 3 la?|3|{-3, -1, 1, 3}|{-4, 4}|{-2, 2}|{-3, 3}
+M|Nghiem phuc cua phuong trinh x^2 + 4 = 0?|1|2i|-2|+-2|+-2i
+M|Ma tran A co dinh thuc bang 0. Phat bieu nao dung?|0|A khong kha nghich|A co dinh thuc bang 1|A co ma tran nghich dao|A la ma tran don vi
+M|Tap nghiem cua bat phuong trinh abs(x - 2) > 3 la?|2|x < -1 hoac x > 5|x > 5|x < -1|x thuoc R
+M|Tong nghiem cua phuong trinh x^2 - 5x + 6 = 0 la?|1|5|6|2|3|4
+M|Gia tri rieng (eigenvalue) cua ma tran [[2, 0], [0, 3]] la?|3|2|3|2 va 3|5
+M|Tap xac dinh cua ham f(x) = ln(x^2 - 4) la?|2|(-inf, -2) U (2, inf)|(-2, 2)|R|x > 0
+M|Phuong trinh x^3 - 6x^2 + 11x - 6 = 0 co bao nhieu nghiem thuc?|3|1|2|3|0
+M|Tim tich phan cua ham f(x) = 2x?|1|x^2|2x|x^2 + C|2x + C
+M|Nghiem cua he: x + y = 5 va x - y = 1 la?|0|(3,2)|(2,3)|(1,4)|(4,1)
+S|5 + 3 = ?|8
