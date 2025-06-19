@@ -1,7 +1,0 @@
-/backgrounds/scene2.png
-D|Khanh Van|I'm not expected to be invited to this game|bob.png
-D|Bob|You walk deeper into the dark forest...|bob.png
-D|Bob|You hear wolves howling in the distance. You hear wolves\\nThis might be long so I add a new line\\nAdd another line\\nAnd another super long line. This should test the dialogue box|bob.png
-C|alice.png|fade
-O|Run toward the sound|code:gotoScene1
-O|Hide and stay quiet|code:gotoScene3
