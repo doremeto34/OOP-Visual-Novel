@@ -8,8 +8,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 public class MultipleChoiceQuestion extends Question {
-	private List<String> options;
-    private int correctIndex;
+	private final List<String> options;
+    private final int correctIndex;
     
     public MultipleChoiceQuestion(String questionText, List<String> options, int correctIndex) {
         super(questionText);

@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Scene implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String backgroundPath;
-    private DialogueEntry[] dialogues; 
+    private final String backgroundPath;
+    private final DialogueEntry[] dialogues; 
 
     public Scene(String backgroundPath, DialogueEntry[] dialogues) {
         this.backgroundPath = backgroundPath;

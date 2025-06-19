@@ -19,7 +19,7 @@ public class ChoicePanel extends VBox {
         setPadding(new Insets(20));
         setAlignment(Pos.CENTER);
         setVisible(false); // Start hidden
-        setStyle("-fx-background-color: rgba(0,0,0,0.8); -fx-background-radius: 20;");
+        setStyle("-fx-background-color: transparent");
     }
 
     public void showChoices(List<Choice> choices, Runnable onChoiceMade) {
@@ -27,8 +27,8 @@ public class ChoicePanel extends VBox {
         setVisible(true);
 
         for (Choice choice : choices) {
-            if (choice.condition.getAsBoolean()) {
-                Button btn = new Button(choice.text);
+            if (choice.getCondition().getAsBoolean()) {
+                Button btn = new Button(choice.getText());
                 btn.setWrapText(true);
                 btn.setMaxWidth(400);
                 btn.setPrefWidth(400);
@@ -39,7 +39,7 @@ public class ChoicePanel extends VBox {
 
                 btn.setOnAction(e -> {
                     setVisible(false);
-                    choice.action.run();
+                    choice.getAction().run();
                     if (onChoiceMade != null) onChoiceMade.run();
                 });
 

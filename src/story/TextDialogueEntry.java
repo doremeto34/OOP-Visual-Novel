@@ -3,8 +3,8 @@ package story;
 import main.DialogueController;
 
 public class TextDialogueEntry extends DialogueEntry {
-    private String speaker;
-    private String text;
+    private final String speaker;
+    private final String text;
 
     public TextDialogueEntry(String speaker, String text, String characterPath, String characterAnimation) {
         super(characterPath,characterAnimation);

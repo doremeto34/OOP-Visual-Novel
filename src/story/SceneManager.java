@@ -17,7 +17,7 @@ public class SceneManager {
     private DialogueController dController;
 
     // Map action keys (from code:) to actual Runnable logic
-    private Map<String, Runnable> codeMap = new HashMap<>();
+    private static Map<String, Runnable> codeMap = new HashMap<>();
 
     public SceneManager(PlayerStats playerStats, DialogueController handler) {
         this.dController = handler;
@@ -42,7 +42,7 @@ public class SceneManager {
 
         codeMap.put("thirdChoice", () -> {
             playerStats.stat1 += 20;
-            dController.transitionToMinigame(dController.gsController.getPrimaryStage(),"database",10,10, 2);
+            dController.transitionToMinigame(dController.gsController.getPrimaryStage(),"database",40,10, 2);
         });
 
         codeMap.put("fourthChoice", () -> {

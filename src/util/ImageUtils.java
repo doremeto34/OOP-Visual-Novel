@@ -1,32 +1,47 @@
 package util;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class ImageUtils {
+    private static final Map<String, Image> cache = new HashMap<>();
 
-    // Cache to store already loaded and scaled images
-    private static final Map<String, ImageIcon> cache = new HashMap<>();
-
-    public static ImageIcon loadScaledImage(String path, int width, int height) {
-        String key = path + "@" + width + "x" + height; // Unique key
-
+    // Load and scale image to specific dimensions
+    public static Image loadScaledImage(String path, int width, int height) {
+        String key = path + "@" + width + "x" + height;
         if (cache.containsKey(key)) {
-            return cache.get(key); // Return already loaded
+            return cache.get(key);
         }
- 
-        ImageIcon rawIcon = new ImageIcon(path);
-        Image scaledImage = rawIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-        cache.put(key, scaledIcon); // Save to cache
-        return scaledIcon;
+        Image image = new Image(path, width, height, false, true);
+        cache.put(key, image);
+        return image;
     }
 
-    
+    public static Image loadImage(String path) {
+        String key = path + "@original";
+        if (cache.containsKey(key)) {
+            return cache.get(key);
+        }
+        Image image = new Image(path, false); // Load with no background loading
+        cache.put(key, image);
+        return image;
+    }
+
+    public static ImageView getImageView(String path, int width, int height) {
+        Image image = loadScaledImage(path, width, height);
+        return new ImageView(image);
+    }
+    public static ImageView getImageView(String path) {
+        Image image = loadImage(path);
+        return new ImageView(image);
+    }
+
     public static void clearCache() {
-        cache.clear(); // If you ever want to clear memory manually
+        cache.clear();
     }
 }
+
+

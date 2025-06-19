@@ -55,8 +55,8 @@ public class DialogueController {
         System.out.println(characterAnimation);
     	if (characterPath != null) {
         	gsController.removeCharacterImage();
-            CharacterImage characterImage = new CharacterImage(characterPath, 400, 533);
-            characterImage.setPosition(440, 100); // example position
+            CharacterImage characterImage = new CharacterImage(characterPath);
+            characterImage.setPosition(0, 0); // example position
             if(characterAnimation!=null && characterAnimation.equals("fade"))
             	characterImage.fadeIn(500);
             else

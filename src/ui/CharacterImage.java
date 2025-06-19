@@ -6,21 +6,22 @@ import javafx.animation.FadeTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import util.ImageUtils;
 
 public class CharacterImage {
     private ImageView imageView;
 
-    public CharacterImage(String imagePath, double width, double height) {
-    	URL imageUrl = getClass().getResource(imagePath);
-        if (imageUrl == null) {
-            imageView = new ImageView(); 
-            return;
-        }
-        imageView = new ImageView(new Image(imageUrl.toExternalForm()));
+    public CharacterImage(String imagePath, int width, int height) {
+    	imageView = ImageUtils.getImageView(imagePath, width, height);
         imageView.setFitWidth(width);
         imageView.setFitHeight(height);
         imageView.setPreserveRatio(true);
         imageView.setOpacity(0); // Start invisible for fade-in effect
+    }
+    public CharacterImage(String imagePath) {
+    	imageView = ImageUtils.getImageView(imagePath);
+        imageView.setPreserveRatio(true);
+        imageView.setOpacity(0);
     }
 
     public ImageView getImageView() {

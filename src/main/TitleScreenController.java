@@ -2,6 +2,10 @@ package main;
 
 import java.io.IOException;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,11 +13,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import ui.SaveLoadPanel;
 import util.FXUtils;
+import util.ImageUtils;
 
 public class TitleScreenController {
 	
@@ -89,9 +96,7 @@ public class TitleScreenController {
             final String GAMESCREEN_FXML_FILE_PATH = "/ui/GameScreen.fxml";
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(GAMESCREEN_FXML_FILE_PATH));
             // Create new player stats
-            PlayerStats playerStats = new PlayerStats();
-            playerStats.sceneId = 1;
-            playerStats.dialogueIndex = 0;
+            PlayerStats playerStats = PlayerStats.createNewPlayerStats();
             GameScreenController gsController = new GameScreenController(playerStats);
             fxmlLoader.setController(gsController);
             
@@ -142,9 +147,42 @@ public class TitleScreenController {
     
     @FXML
     public void initialize() {
-    	FXUtils.setBackgroundImage(backgroundPane,"/backgrounds/zzz2.png");
+    	FXUtils.setBackgroundImage(backgroundPane,"/backgrounds/BK.jpg");
     	
-    	
+    	ImageView myImage = new ImageView();
+        myImage = ImageUtils.getImageView("/backgrounds/logo2.png");
+        backgroundPane.getChildren().add(myImage);
+        myImage.setLayoutX(600);
+    	TranslateTransition translate = new TranslateTransition();
+        startBounceAnimation(myImage, 200); // 500 = ground Y position
+    }
+    
+    private void startBounceAnimation(ImageView node, double groundY) {
+        final double gravity = 1.0;
+        double[] velocity = {0};
+        double damping = 0.7;
+        double[] posY = {node.getLayoutY()};
+
+        Timeline[] timeline = new Timeline[1]; // Use array to access inside lambda
+
+        timeline[0] = new Timeline(new KeyFrame(Duration.millis(16), e -> {
+            velocity[0] += gravity;
+            posY[0] += velocity[0];
+
+            if (posY[0] >= groundY) {
+                posY[0] = groundY;
+                velocity[0] *= -damping;
+            }
+
+            if (Math.abs(velocity[0]) < 0.5 && posY[0] == groundY) {
+                timeline[0].stop(); // Correctly stop the timeline
+            }
+
+            node.setLayoutY(posY[0]);
+        }));
+
+        timeline[0].setCycleCount(Animation.INDEFINITE);
+        timeline[0].play();
     }
 
 }

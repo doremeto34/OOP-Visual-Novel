@@ -179,9 +179,9 @@ public class GameScreenController {
         String charPath = currentEntry.getCharacterPath();
 
         if (charPath != null && !charPath.isEmpty()) {
-            characterImage = new CharacterImage(charPath, 400, 533);
-            characterImage.getImageView().setLayoutX(440);  // position like old setBounds
-            characterImage.getImageView().setLayoutY(100);
+            characterImage = new CharacterImage(charPath);
+            characterImage.getImageView().setLayoutX(0);  // position like old setBounds
+            characterImage.getImageView().setLayoutY(0);
 
             // Add to backgroundPane or any pane you want
             backgroundPane.getChildren().add(0,characterImage.getImageView());

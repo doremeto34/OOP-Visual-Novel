@@ -3,11 +3,12 @@ package story;
 import main.DialogueController;
 
 public abstract class DialogueEntry {
-	String characterPath;
-	String characterAnimation;
+	final String characterPath;
+	final String characterAnimation;
 	
 	public DialogueEntry(String characterPath) {
 		this.characterPath = characterPath;
+		this.characterAnimation = null;
 	}
 	public DialogueEntry(String characterPath,String characterAnimation) {
 		this.characterPath = characterPath;

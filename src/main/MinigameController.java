@@ -22,6 +22,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -36,6 +37,7 @@ import story.Question;
 import story.QuestionBank;
 import story.QuestionBankManager;
 import story.ShortAnswerQuestion;
+import ui.PhonePanel;
 import util.FXUtils;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -61,6 +63,9 @@ public class MinigameController {
 		this.returnSceneId = returnSceneId;
 	}
 	@FXML
+	private StackPane backgroundPane;
+	
+	@FXML
     private VBox questionContainer;
 
     @FXML
@@ -85,7 +90,14 @@ public class MinigameController {
     private Pane timeoutPane;
 
     @FXML
+    private Button phoneButton;
+    
+    private PhonePanel phonePanel;
+    
+    @FXML
     void initialize() {
+    	createPhonePanel();
+        PhonePanel.stylePhoneButton(phoneButton);
         setupUIVisibility();
         initExam();
         renderQuestions();
@@ -236,6 +248,21 @@ public class MinigameController {
         // 4. In kết quả
         System.out.println("Score: " + score + " / " + total);
 
+    }
+    
+    @FXML
+    void phoneButtonPressed(ActionEvent event) {
+    	if (phonePanel != null) {
+            phonePanel.showIn(backgroundPane);
+        }
+    }
+    
+    public void createPhonePanel() {
+        if (phonePanel == null) {
+            phonePanel = new PhonePanel(backgroundPane);
+            backgroundPane.getChildren().add(phonePanel);
+            phonePanel.setVisible(false);
+        }
     }
 }
 

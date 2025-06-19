@@ -98,7 +98,7 @@ public class PhonePanel extends StackPane {
 
         new Thread(() -> {
             try {
-                String apiKey = "AIzaSyCBP5j7A7wDcsiOXtS3rx6wr3eWvQZqlqg"; // Replace with your Gemini API key
+                String apiKey = "AIzaSyCBP5j7A7wDcsiOXtS3rx6wr3eWvQZqlqg"; 
                 URL url = new URL("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");

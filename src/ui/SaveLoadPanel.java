@@ -114,7 +114,7 @@ public class SaveLoadPanel extends StackPane {
         	    	    clip.setArcHeight(20);
         	    	    imageView.setClip(clip);
 
-        	    	    imageView.setOnMouseClicked(e -> handleSlot(slotNumber));
+        	    	    imageView.setOnMouseClicked(e -> slotPressed(slotNumber));
 
         	    	    Label dateLabel = new Label(getSaveFileDate(filename));
         	    	    dateLabel.setTextFill(Color.WHITE);
@@ -137,12 +137,12 @@ public class SaveLoadPanel extends StackPane {
         emptyLabel.setAlignment(Pos.CENTER);
         emptyLabel.setPrefSize(200, 120);
         emptyLabel.setStyle("-fx-border-color: gray; -fx-border-width: 2px; -fx-background-color: #333333;");
-        emptyLabel.setOnMouseClicked(e -> handleSlot(slotNumber));
+        emptyLabel.setOnMouseClicked(e -> slotPressed(slotNumber));
         box.getChildren().add(emptyLabel);
         return box;
     }
 
-    private void handleSlot(int slotIndex) {
+    private void slotPressed(int slotIndex) {
         String filename = "save" + slotIndex + ".dat";
 
         if (isSaving) {

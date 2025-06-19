@@ -5,11 +5,12 @@ import java.util.List;
 import main.DialogueController;
 
 public class ChoiceDialogueEntry extends DialogueEntry {
-	private String text;
-    private List<Choice> choices;
+	private final String text;
+    private final List<Choice> choices;
 
     public ChoiceDialogueEntry(String characterPath,String animation,List<Choice> choices) {
     	super(characterPath,animation);
+		this.text = null;
         this.choices = choices;
     }
 

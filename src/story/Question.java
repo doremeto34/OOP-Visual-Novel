@@ -3,7 +3,7 @@ package story;
 import javafx.scene.layout.VBox;
 
 public abstract class Question {
-	private String questionText;
+	private final String questionText;
 	
 	public Question(String questionText) {
 		this.questionText = questionText;

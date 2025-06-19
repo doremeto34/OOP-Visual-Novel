@@ -31,4 +31,11 @@ public class PlayerStats implements Serializable {
         // Copy any other player stats you have
     }
 
+    public static PlayerStats createNewPlayerStats() {
+    	PlayerStats newPlayerStats = new PlayerStats();
+        newPlayerStats.sceneId = 1;
+        newPlayerStats.dialogueIndex = 0;
+        return newPlayerStats;
+    }
+    
 }

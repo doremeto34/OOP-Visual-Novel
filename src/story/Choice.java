@@ -3,9 +3,9 @@ package story;
 import java.util.function.BooleanSupplier; 
 
 public class Choice {
-    public String text;
-    public Runnable action;
-    public BooleanSupplier condition;
+    private String text;
+    private Runnable action;
+    private BooleanSupplier condition;
 
     public Choice(String text, Runnable action) {
         this(text, action, () -> true); 
@@ -15,5 +15,15 @@ public class Choice {
         this.text = text;
         this.action = action;
         this.condition = condition;
+    }
+    
+    public String getText() {
+    	return text;
+    }
+    public Runnable getAction() {
+    	return action;
+    }
+    public BooleanSupplier getCondition() {
+    	return condition;
     }
 }

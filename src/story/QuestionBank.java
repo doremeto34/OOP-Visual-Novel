@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class QuestionBank {
-    private String subject;
-    private List<Question> questions = new ArrayList<>();
+    private final String subject;
+    private final List<Question> questions = new ArrayList<>();
 
     public QuestionBank(String subject) {
         this.subject = subject;
