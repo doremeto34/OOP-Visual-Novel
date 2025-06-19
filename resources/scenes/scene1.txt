@@ -1,0 +1,17 @@
+/backgrounds/scene1.png
+
+D|Hải|Hello !|hai.png|fade
+D|Hải|Bro làm xong mondai chưa cho Hải chép với.|hai.png
+D|Hải|Chết rồi hôm nay có minitest mà chưa ôn gì|hai.png
+
+C|hai.png
+# test comment
+O|Cho Hải chép mondai|code:exploreForest
+# test comment
+O|Không cho Hải chép|code:restHere|cond:stat1>-1
+# test comment
+O|Nói dối là chưa làm|code:thirdChoice
+# test comment
+
+#D|Alice|Alice breeze passes...|alice.png|fade
+#D|Bob|A breeze passes...|bob.png|fade

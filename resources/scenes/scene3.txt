@@ -1,0 +1,6 @@
+/backgrounds/scene3.png
+D|Alice|You walk deeper into the dark forest...|alice.png|fade
+D|Bob|You hear wolves howling in the distance.|bob.png|fade
+C|alice.png
+O|Run toward the sound|code:gotoScene1
+O|Hide and stay quiet|code:gotoScene4
